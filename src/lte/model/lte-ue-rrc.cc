@@ -1739,7 +1739,7 @@ LteUeRrc::CopyRlcBuffers(Ptr<LteRlc> rlc, Ptr<LtePdcp> pdcp, uint16_t lcid)
                               << " Size = " << txonBufferSize);
 
             Ptr<Packet> segmentedRlcsdu = rlcAm->GetSegmentedRlcsdu();
-            if (segmentedRlcsdu != NULL)
+            if (segmentedRlcsdu)
             {
                 segmentedRlcsdu->PeekHeader(pdcpHeader);
                 NS_LOG_DEBUG(this << "UE RRC: SegmentedRlcSdu = " << segmentedRlcsdu->GetSize()
@@ -1762,7 +1762,7 @@ LteUeRrc::CopyRlcBuffers(Ptr<LteRlc> rlc, Ptr<LtePdcp> pdcp, uint16_t lcid)
                  it != rlcAmTxedSduBuffer.end();
                  ++it)
             {
-                if ((*it) != NULL)
+                if ((*it))
                 {
                     (*it)->PeekHeader(pdcpHeader);
                     NS_LOG_DEBUG("UE RRC: rlcAmTxedSduBuffer SEQ = "
