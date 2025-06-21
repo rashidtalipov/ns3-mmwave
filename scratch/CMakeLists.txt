@@ -1,5 +1,7 @@
 set(target_prefix scratch_)
 
+include_directories(${NS3_SOURCE_DIR}/src/lte/model)
+
 function(create_scratch source_files)
   # Return early if no sources in the subdirectory
   list(LENGTH source_files number_sources)
